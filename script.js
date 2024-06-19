@@ -1,5 +1,5 @@
 // Retrieve the contactList ul element
-const contactall = document.getElementById('contactall');
+const contactList = document.getElementById('contactList');
 
 // Retrieve the contactForm and add submit event listener
 const contactForm = document.getElementById('contactForm');
@@ -37,7 +37,7 @@ function saveContact(contact) {
 // Function to display contacts from localStorage
 function displayContacts() {
     let contacts = JSON.parse(localStorage.getItem('contacts')) || [];
-    contactall.innerHTML = ''; // Clear existing list
+    contactList.innerHTML = ''; // Clear existing list
 
     contacts.forEach((contact, index) => {
         // Create li element for each contact
@@ -45,7 +45,7 @@ function displayContacts() {
         li.innerHTML = `<span>${contact.name}</span>: ${contact.email}
                         <button onclick="deleteContact(${index})">Delete</button>
                         <button onclick="editContact(${index})">Edit</button>`;
-                        contactall.appendChild(li);
+        contactList.appendChild(li);
     });
 }
 
